@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5806361307746720880}
   - component: {fileID: 3992854947870615027}
   - component: {fileID: 4490633110871878367}
+  - component: {fileID: -3637940324823810695}
   m_Layer: 0
   m_Name: '[VIEW]'
   m_TagString: Untagged
@@ -143,6 +144,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 5806361307746720880}
   - {fileID: 4490633110871878367}
+  - {fileID: -3637940324823810695}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &5806361307746720880
 MonoBehaviour:
@@ -188,6 +190,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementComponent: {fileID: 3992854947870615027}
   direction: {x: 0, y: 0}
+--- !u!114 &-3637940324823810695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199319314993873769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad263ef0d8f6cdf4484d3e3cfe81c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4949913494161032179
 GameObject:
   m_ObjectHideFlags: 0
