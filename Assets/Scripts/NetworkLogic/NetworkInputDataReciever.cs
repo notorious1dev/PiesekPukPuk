@@ -1,19 +1,28 @@
 using UnityEngine;
 using Fusion;
+using System.Collections;
 
 public class NetworkInputDataReciever : NetworkBehaviour
 {
     [SerializeField]
     private MovementComponent _movementComponent;
-
     public Vector2 direction;
+
+    private bool wasPunchingLastTick;
     public override void FixedUpdateNetwork()
     {
         if (!GetInput(out NetworkInputData inputData)) return;
         direction = inputData.direction;
 
+        //Moving
         _movementComponent.Move(direction, Runner.DeltaTime);
         RotateToDirection();
+
+
+        //Punch
+        if (inputData.isPlayerPunching && !wasPunchingLastTick)
+            Debug.Log("Punch!");
+        wasPunchingLastTick = inputData.isPlayerPunching;
     }
 
     private void RotateToDirection()

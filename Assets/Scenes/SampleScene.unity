@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 503236855}
   - component: {fileID: 503236862}
   - component: {fileID: 503236861}
+  - component: {fileID: 503236863}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementInput: {fileID: 503236862}
+  _punchInput: {fileID: 503236863}
   _callbacksReceiver: {fileID: 503236855}
 --- !u!114 &503236862
 MonoBehaviour:
@@ -452,6 +454,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 970694411}
+--- !u!114 &503236863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503236854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11254d91e2c51743a40d92feadf5b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerPunching: 0
+  punchRegularValue: 0.05
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

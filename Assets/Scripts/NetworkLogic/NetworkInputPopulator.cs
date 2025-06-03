@@ -7,6 +7,9 @@ public class NetworkInputPopulator : MonoBehaviour
     private MovementInput _movementInput;
 
     [SerializeField]
+    private PunchInput _punchInput;
+
+    [SerializeField]
     private NetworkCallbacksReceiver _callbacksReceiver;
 
     private void OnEnable()
@@ -23,7 +26,8 @@ public class NetworkInputPopulator : MonoBehaviour
     {
         NetworkInputData inputData = new()
         {
-            direction = _movementInput.GetDirection()
+            direction = _movementInput.GetDirection(),
+            isPlayerPunching = _punchInput.isPlayerPunching,
         };
         input.Set(inputData);
     }
