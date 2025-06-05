@@ -17,12 +17,6 @@ public class NetworkInputDataReciever : NetworkBehaviour
         //Moving
         _movementComponent.Move(direction, Runner.DeltaTime);
         RotateToDirection();
-
-
-        //Punch
-        if (inputData.isPlayerPunching && !wasPunchingLastTick)
-            Debug.Log("Punch!");
-        wasPunchingLastTick = inputData.isPlayerPunching;
     }
 
     private void RotateToDirection()
