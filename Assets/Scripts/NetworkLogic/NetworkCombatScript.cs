@@ -5,7 +5,11 @@ public class NetworkCombatScript : NetworkBehaviour
 {
     [SerializeField] float punchRadius = 2f;
     [SerializeField] float punchOffset = 0f;
+    [SerializeField] float attackAngle = 30f;
+    [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] int damage = 1;
+
+    private float lastAttacktime;
 
     private bool wasPunchingLastTick;
     public override void FixedUpdateNetwork()
@@ -17,7 +21,13 @@ public class NetworkCombatScript : NetworkBehaviour
         if (inputData.isPlayerPunching && !wasPunchingLastTick)
         {
             Debug.Log("Punch");
-            Rpc_RequestAttack();
+            if (Time.time - lastAttacktime >= attackCooldown)
+            {
+                Debug.Log(Time.time - lastAttacktime);
+                lastAttacktime = Time.time;
+                Rpc_RequestAttack();
+                Rpc_AnimateAttack();
+            }
         }
 
 
@@ -39,7 +49,7 @@ public class NetworkCombatScript : NetworkBehaviour
             float angle = product * Mathf.Rad2Deg;
             Debug.Log("Angle to target is " + angle);
 
-            if (angle < 30) continue;
+            if (angle < attackAngle) continue;
 
             var health = hit.GetComponent<HealthComponent>();
             if (health != null)
