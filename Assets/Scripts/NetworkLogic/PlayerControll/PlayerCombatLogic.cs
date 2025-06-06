@@ -1,7 +1,7 @@
 using UnityEngine;
 using Fusion;
 
-public class NetworkCombatScript : NetworkBehaviour
+public class PlayerCombatLogic : NetworkBehaviour
 {
     [SerializeField] float punchRadius = 2f;
     [SerializeField] float punchOffset = 0f;
@@ -10,8 +10,8 @@ public class NetworkCombatScript : NetworkBehaviour
     [SerializeField] int damage = 1;
 
     private float lastAttacktime;
-
     private bool wasPunchingLastTick;
+
     public override void FixedUpdateNetwork()
     {
         if (!GetInput(out NetworkInputData inputData)) return;
@@ -20,13 +20,10 @@ public class NetworkCombatScript : NetworkBehaviour
         //Punch
         if (inputData.isPlayerPunching && !wasPunchingLastTick)
         {
-            Debug.Log("Punch");
-            if (Time.time - lastAttacktime >= attackCooldown)
+            if (CheckCoolDown())
             {
-                Debug.Log(Time.time - lastAttacktime);
                 lastAttacktime = Time.time;
                 Rpc_RequestAttack();
-                Rpc_AnimateAttack();
             }
         }
 
@@ -47,7 +44,6 @@ public class NetworkCombatScript : NetworkBehaviour
             Vector2 directionToTarget = (hit.transform.position - transform.position).normalized;
             float product = Vector2.Dot(transform.up, directionToTarget);
             float angle = product * Mathf.Rad2Deg;
-            Debug.Log("Angle to target is " + angle);
 
             if (angle < attackAngle) continue;
 
@@ -59,9 +55,8 @@ public class NetworkCombatScript : NetworkBehaviour
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-    private void Rpc_AnimateAttack()
+    public bool CheckCoolDown()
     {
-
+        return Time.time - lastAttacktime >= attackCooldown;
     }
 }

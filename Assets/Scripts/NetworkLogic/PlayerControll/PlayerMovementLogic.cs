@@ -2,7 +2,7 @@ using UnityEngine;
 using Fusion;
 using System.Collections;
 
-public class NetworkInputDataReciever : NetworkBehaviour
+public class PlayerMovementLogic : NetworkBehaviour
 {
     [SerializeField]
     private MovementComponent _movementComponent;
