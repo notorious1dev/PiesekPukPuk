@@ -8,6 +8,9 @@ public class PlayerMovementLogic : NetworkBehaviour
     private MovementComponent _movementComponent;
 
     [SerializeField]
+    private Transform spriteTransform;
+
+    [SerializeField]
     private HealthComponent healthComponent;
     public Vector2 direction;
 
@@ -27,6 +30,6 @@ public class PlayerMovementLogic : NetworkBehaviour
     {
         if (direction == Vector2.zero) return;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle - 90), 15f * Runner.DeltaTime);
+        spriteTransform.transform.rotation = Quaternion.Slerp(spriteTransform.transform.rotation, Quaternion.Euler(0, 0, angle + 90), 15f * Runner.DeltaTime);
     }
 }

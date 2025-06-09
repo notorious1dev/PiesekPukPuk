@@ -40,6 +40,7 @@ public class PlayerCombatLogic : NetworkBehaviour
         Vector2 pos = transform.position + transform.forward * punchOffset;
         Collider2D[] hits = Physics2D.OverlapCircleAll(pos, punchRadius);
 
+
         foreach (Collider2D hit in hits)
         {
             if (hit.gameObject == this.gameObject) continue;
@@ -48,12 +49,16 @@ public class PlayerCombatLogic : NetworkBehaviour
             float product = Vector2.Dot(transform.up, directionToTarget);
             float angle = product * Mathf.Rad2Deg;
 
-            if (angle < attackAngle) continue;
+            if (angle > attackAngle) continue;
 
             var health = hit.GetComponent<HealthComponent>();
             if (health != null)
             {
                 health.Rpc_TakeDamage(damage);
+            }
+            else
+            {
+                Debug.LogWarning("Error: HealthComponent was not found");
             }
         }
     }

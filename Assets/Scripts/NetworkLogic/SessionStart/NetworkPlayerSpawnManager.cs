@@ -13,7 +13,7 @@ public sealed class NetworkPlayerSpawnManager : SimulationBehaviour, IPlayerJoin
     {
         if (!Runner.IsServer) return;
 
-        NetworkObject playerObject = Runner.Spawn(_playerPrefab, Vector3.zero, Quaternion.Euler(0, 0, -90), player);
+        NetworkObject playerObject = Runner.Spawn(_playerPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0), player);
         players.Add(player, playerObject);
     }
 

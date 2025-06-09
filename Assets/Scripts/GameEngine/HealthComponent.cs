@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class HealthComponent : NetworkBehaviour
 {
-    [Networked] int health { get; set; } = 3;
+    [Networked] public int health { get; set; } = 3;
     [SerializeField] int healthStandart = 3;
-
-    public override void FixedUpdateNetwork()
-    {
-        if (health <= 0)
-        {
-            Respawn();
-        }
-    }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void Rpc_TakeDamage(int amount)
