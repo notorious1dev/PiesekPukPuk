@@ -3,6 +3,8 @@ using Fusion;
 
 public class PlayerCombatLogic : NetworkBehaviour
 {
+    [SerializeField]HealthComponent healthComponent;
+
     [SerializeField] float punchRadius = 2f;
     [SerializeField] float punchOffset = 0f;
     [SerializeField] float attackAngle = 30f;
@@ -14,6 +16,7 @@ public class PlayerCombatLogic : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
+        if (healthComponent.GetHealth() <= 0) return;
         if (!GetInput(out NetworkInputData inputData)) return;
         if (!HasInputAuthority) return;
 

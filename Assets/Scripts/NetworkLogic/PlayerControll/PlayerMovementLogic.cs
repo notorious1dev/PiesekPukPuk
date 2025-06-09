@@ -6,11 +6,15 @@ public class PlayerMovementLogic : NetworkBehaviour
 {
     [SerializeField]
     private MovementComponent _movementComponent;
+
+    [SerializeField]
+    private HealthComponent healthComponent;
     public Vector2 direction;
 
     private bool wasPunchingLastTick;
     public override void FixedUpdateNetwork()
     {
+        if (healthComponent.GetHealth() <= 0) return;
         if (!GetInput(out NetworkInputData inputData)) return;
         direction = inputData.direction;
 
@@ -23,6 +27,6 @@ public class PlayerMovementLogic : NetworkBehaviour
     {
         if (direction == Vector2.zero) return;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle -90), 15f * Runner.DeltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle - 90), 15f * Runner.DeltaTime);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthComponent : NetworkBehaviour
 {
-    [Networked] public int health { get; set; } = 3;
+    [Networked] int health { get; set; } = 3;
     [SerializeField] int healthStandart = 3;
 
     public override void FixedUpdateNetwork()
@@ -30,4 +30,6 @@ public class HealthComponent : NetworkBehaviour
         transform.position = Vector3.zero;
         health = healthStandart;
     }
+
+    public int GetHealth() => health;
 }
