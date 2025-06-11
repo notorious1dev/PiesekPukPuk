@@ -4,8 +4,11 @@ public class MovementComponent : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 5.0f;
-    public void Move(Vector3 direction, float delaTime)
+
+    [SerializeField]
+    private Rigidbody2D _rigidbody;
+    public void Move(Vector3 direction)
     {
-        transform.position += direction * (_speed * delaTime);
+        _rigidbody.linearVelocity = direction * _speed;
     }
 }

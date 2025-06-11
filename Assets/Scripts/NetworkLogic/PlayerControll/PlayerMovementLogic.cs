@@ -22,7 +22,7 @@ public class PlayerMovementLogic : NetworkBehaviour
         direction = inputData.direction;
 
         //Moving
-        _movementComponent.Move(direction, Runner.DeltaTime);
+        _movementComponent.Move(direction);
         RotateToDirection();
     }
 
