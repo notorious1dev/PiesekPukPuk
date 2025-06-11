@@ -367,8 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea91a5a9649d14598d976b68d0c4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab:
-    RawGuidValue: 2baf3928f8219804da313d6e0efb2922
+  _playerPrefab: {fileID: 4199319314993873769, guid: 2baf3928f8219804da313d6e0efb2922, type: 3}
 --- !u!114 &503236857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +574,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1087,7 +1086,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 3
+    OrthographicSize: 2.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
