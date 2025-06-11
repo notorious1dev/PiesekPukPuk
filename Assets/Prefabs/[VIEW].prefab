@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 7838947103629942706}
   - component: {fileID: 8566955643832405679}
   - component: {fileID: 6305339060612738419}
+  - component: {fileID: -275679893619132296}
   m_Layer: 0
   m_Name: '[VIEW]'
   m_TagString: Player
@@ -266,6 +267,7 @@ MonoBehaviour:
   - {fileID: 6359825108358559978}
   - {fileID: 2281467717126251258}
   - {fileID: 6305339060612738419}
+  - {fileID: -275679893619132296}
   - {fileID: 8949322586933060995}
   - {fileID: 2313652795778272502}
   ForceRemoteRenderTimeframe: 0
@@ -479,6 +481,18 @@ MonoBehaviour:
     Position: 0.01
     Rotation: 0.01
     Scale: 0.01
+--- !u!114 &-275679893619132296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199319314993873769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9836a8f610f99334a8c8f697a90e03a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5238179409284231216
 GameObject:
   m_ObjectHideFlags: 0
