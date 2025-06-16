@@ -29,20 +29,20 @@ public class PointLogic : NetworkBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (HasStateAuthority)
-        {
-            MoveToRandomPosition();
-            GenerateNewColor();
-        }
+        if (!Runner.IsSharedModeMasterClient) return;
+        MoveToRandomPosition();
+        GenerateNewColor();
     }
 
     public override void FixedUpdateNetwork()
     {
+        if (!Runner.IsSharedModeMasterClient) return;
+
         transform.position = TargetPosition;
         spriteRenderer.color = Color;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!HasStateAuthority) return;
 
