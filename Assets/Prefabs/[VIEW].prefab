@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 6359825108358559978}
   - {fileID: 2281467717126251258}
   - {fileID: 6305339060612738419}
+  - {fileID: -275679893619132296}
   - {fileID: 8949322586933060995}
   - {fileID: 2313652795778272502}
   ForceRemoteRenderTimeframe: 0
@@ -492,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9836a8f610f99334a8c8f697a90e03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterUI: {fileID: 0}
+  _pointCounter: 0
 --- !u!1 &5238179409284231216
 GameObject:
   m_ObjectHideFlags: 0

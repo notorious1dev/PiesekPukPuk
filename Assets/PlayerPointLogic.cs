@@ -1,9 +1,10 @@
+using Fusion;
 using TMPro;
 using UnityEngine;
 
-public class PlayerPointsLogic : MonoBehaviour
+public class PlayerPointsLogic : NetworkBehaviour
 {
-    [SerializeField] private int pointCounter = 0;
+    [Networked] public int pointCounter { get; set; } = 0;
 
     public void AddPoint(int value)
     {
