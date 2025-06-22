@@ -6,10 +6,10 @@ public class PlayerCombatLogic : NetworkBehaviour
     [SerializeField]HealthComponent healthComponent;
 
     [SerializeField] float punchRadius = 2f;
-    [SerializeField] float punchOffset = 0f;
     [SerializeField] float attackAngle = 30f;
-    [SerializeField] float attackCooldown = 0.5f;
-    [SerializeField] int damage = 1;
+    public float attackCooldown = 0.5f;
+    public float punchOffset = 1f;
+    public int damage = 1;
 
     private float lastAttacktime;
     private bool wasPunchingLastTick;

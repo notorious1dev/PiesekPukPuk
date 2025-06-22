@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PointLogic : NetworkBehaviour
+public class PointScript : NetworkBehaviour
 {
     [SerializeField] private int pointValue = 1;
 
@@ -57,7 +57,7 @@ public class PointLogic : NetworkBehaviour
         //if (!Runner.IsSharedModeMasterClient) return;
 
         if (collision.gameObject.CompareTag("Player") &&
-            collision.gameObject.TryGetComponent(out PlayerPointsLogic pointsLogic))
+            collision.gameObject.TryGetComponent(out PlayerPoints pointsLogic))
         {
             pointsLogic.AddPoint(pointValue);
             RespawnPoint();

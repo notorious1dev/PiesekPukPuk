@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0
-  SyncScale: 0
+  SyncScale: 1
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 8566955643832405679}
   - component: {fileID: 6305339060612738419}
   - component: {fileID: -275679893619132296}
+  - component: {fileID: 3777612648667845671}
   m_Layer: 0
   m_Name: '[VIEW]'
   m_TagString: Player
@@ -268,6 +269,7 @@ MonoBehaviour:
   - {fileID: 2281467717126251258}
   - {fileID: 6305339060612738419}
   - {fileID: -275679893619132296}
+  - {fileID: 3777612648667845671}
   - {fileID: 8949322586933060995}
   - {fileID: 2313652795778272502}
   ForceRemoteRenderTimeframe: 0
@@ -283,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c2f5720ab3c341afe8538e4b524d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  speed: 4.67
   _rigidbody: {fileID: 8566955643832405679}
 --- !u!114 &-3637940324823810695
 MonoBehaviour:
@@ -327,9 +329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthComponent: {fileID: -6468072794660588401}
   punchRadius: 2
-  punchOffset: 1
   attackAngle: 45
   attackCooldown: 0.5
+  punchOffset: 1
   damage: 1
 --- !u!114 &-6468072794660588401
 MonoBehaviour:
@@ -343,9 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cbc8db76a1ba04bbe7233b809e8cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
-  healthStandart: 3
-  playerPointsLogic: {fileID: -275679893619132296}
+  _health: 1
+  healthStandart: 1
+  playerPoints: {fileID: -275679893619132296}
 --- !u!114 &2055847091957251035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateAuthorityChangeErrorCorrectionDelta: 0
-  SyncScale: 0
+  SyncScale: 1
   SyncParent: 1
   _interpolationTarget: {fileID: 0}
   UsePreciseRotation: 0
@@ -494,7 +496,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9836a8f610f99334a8c8f697a90e03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointCounter: 0
+--- !u!114 &3777612648667845671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199319314993873769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95cf909018fc90c4db97a501f228c4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPoints: {fileID: -275679893619132296}
+  playerCombat: {fileID: 4258362171006216266}
+  playerHealth: {fileID: -6468072794660588401}
+  playerMovement: {fileID: 3992854947870615027}
+  playerSprite: {fileID: 2741395340132801807}
 --- !u!1 &5238179409284231216
 GameObject:
   m_ObjectHideFlags: 0

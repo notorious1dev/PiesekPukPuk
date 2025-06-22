@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayerPointsLogic : NetworkBehaviour
+public class PlayerPoints : NetworkBehaviour
 {
-    [Networked] public int pointCounter { get; set; } = 0;
+    [Networked] internal int pointCounter { get; set; } = 0;
 
     public void Update()
     {

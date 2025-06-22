@@ -6,7 +6,7 @@ public class HealthComponent : NetworkBehaviour
 {
     [Networked] public int health { get; set; } = 3;
     [SerializeField] int healthStandart = 3;
-    [SerializeField] PlayerPointsLogic playerPointsLogic;
+    [SerializeField] PlayerPoints playerPoints;
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void Rpc_TakeDamage(int amount)
@@ -21,7 +21,7 @@ public class HealthComponent : NetworkBehaviour
     private void Respawn()
     {
         transform.position = Vector3.zero;
-        playerPointsLogic.ResetPoint();
+        playerPoints.ResetPoint();
         health = healthStandart;
     }
 
