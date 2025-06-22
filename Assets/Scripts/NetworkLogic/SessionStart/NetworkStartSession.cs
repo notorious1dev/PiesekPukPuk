@@ -16,7 +16,7 @@ public sealed class NetworkStartSession : MonoBehaviour
 
     private void Start()
     {
-        StartSession(GameMode.AutoHostOrClient);
+        StartSession(GameMode.Shared);
     }
 
     private async Task StartSession(GameMode GameMode)

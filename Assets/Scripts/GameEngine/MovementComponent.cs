@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+    public float speed = 5.0f;
+
     [SerializeField]
-    private float _speed = 5.0f;
-    public void Move(Vector3 direction, float delaTime)
+    private Rigidbody2D _rigidbody;
+    public void Move(Vector3 direction)
     {
-        transform.position += direction * (_speed * delaTime);
+        _rigidbody.linearVelocity = direction * speed;
     }
 }
