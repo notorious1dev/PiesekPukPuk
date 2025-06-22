@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 138473979}
   - component: {fileID: 138473978}
   - component: {fileID: 138473981}
+  - component: {fileID: 138473982}
   m_Layer: 5
   m_Name: '[PointCounter]'
   m_TagString: PointCounter
@@ -276,6 +277,19 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours: []
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &138473982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138473976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb8a30a109aeea499afb449102e7997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterUI: {fileID: 138473978}
 --- !u!1001 &184774469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointInstance:
     RawGuidValue: c9ca633dae7c6fb4d9478a50eec06771
-  amountOfPoints: 250
+  amountOfPoints: 500
 --- !u!114 &286229171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,7 +1658,7 @@ GameObject:
   - component: {fileID: 1266885306}
   m_Layer: 5
   m_Name: '[Points]'
-  m_TagString: Untagged
+  m_TagString: PointCounter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

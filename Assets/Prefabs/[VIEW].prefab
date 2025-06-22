@@ -345,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 3
   healthStandart: 3
+  playerPointsLogic: {fileID: -275679893619132296}
 --- !u!114 &2055847091957251035
 MonoBehaviour:
   m_ObjectHideFlags: 0

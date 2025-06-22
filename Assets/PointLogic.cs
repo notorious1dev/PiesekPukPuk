@@ -1,7 +1,9 @@
+using System;
 using Fusion;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PointLogic : NetworkBehaviour
 {
@@ -22,9 +24,9 @@ public class PointLogic : NetworkBehaviour
         Color.green,
         Color.cyan,
         Color.yellow,
-        new Color(1f, 166f/255f, 0f, 1f),
-        new Color(163f/255f, 1f, 0f, 1f),
-        new Color(1f, 0f, 104f/255f, 1f),
+        new Color(1f, 166f, 0f, 1f),
+        new Color(163f, 1f, 0f, 1f),
+        new Color(1f, 0f, 104f, 1f),
     };
 
     public override void Render()
