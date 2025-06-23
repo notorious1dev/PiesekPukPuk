@@ -16,7 +16,7 @@ public class PlayerCombatLogic : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        if (healthComponent.GetHealth() <= 0) return;
+        if (healthComponent.isDead) return;
         if (!GetInput(out NetworkInputData inputData)) return;
         if (!HasInputAuthority) return;
 

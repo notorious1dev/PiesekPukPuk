@@ -1,11 +1,21 @@
+using Fusion;
 using UnityEngine;
+using System.Collections;
 
 public class PunchInput : MonoBehaviour
 {
+    public static PunchInput instance;
     public bool isPlayerPunching;
-    
     private float punchBoofer = 0;
-    [SerializeField] public float punchRegularValue = 0;
+    [SerializeField] private float punchRegularValue = 0;
+
+    private HealthComponent playerHealth;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Update()
     {
         isPlayerPunching = false;
@@ -14,10 +24,6 @@ public class PunchInput : MonoBehaviour
         {
             punchBoofer -= Time.deltaTime;
             isPlayerPunching = true;
-        }
-        else
-        {
-            isPlayerPunching = false;
         }
 
         foreach (Touch touch in Input.touches)

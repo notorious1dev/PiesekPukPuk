@@ -42,25 +42,19 @@ public class PlayerPointsLogic : NetworkBehaviour
 
         points = currentPoints;
 
-        // Гладкий рост размеров
         float scaleMultiplier = 1f + Mathf.Log10(points + 1) * 0.3f;
         playerSprite.localScale = new Vector3(normalScale * scaleMultiplier, normalScale * scaleMultiplier, 1);
 
-        // Скорость уменьшается, но не меньше 30% от нормальной
         float speedReduction = Mathf.Log10(points + 1) * 1.5f;
         playerMovement.speed = Mathf.Max(normalSpeed - speedReduction, normalSpeed * 0.6f);
 
-        // Зум камеры увеличивается, но тоже не бесконечно
         float cameraZoom = normalCameraLens + Mathf.Log10(points + 1);
         MainCameraManager.instance.Lens.OrthographicSize = cameraZoom;
 
-        // Кулдаун атаки увеличивается слегка
         playerCombat.attackCooldown = normalAttackCoolDown + Mathf.Log10(points + 1) * 0.15f;
 
-        // Радиус удара тоже чуть больше
         playerCombat.punchOffset = normalPunchOffset + Mathf.Log10(points + 1) * 0.1f;
 
-        // ХП и урон увеличиваются, но тоже не линейно
         int newHealthAndDamage = Mathf.Clamp(Mathf.FloorToInt(Mathf.Sqrt(points)), 1, 10);
         playerHealth.health = newHealthAndDamage;
         playerCombat.damage = newHealthAndDamage;

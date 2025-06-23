@@ -17,7 +17,7 @@ public class PlayerMovementLogic : NetworkBehaviour
     private bool wasPunchingLastTick;
     public override void FixedUpdateNetwork()
     {
-        if (healthComponent.GetHealth() <= 0) return;
+        if (healthComponent.isDead) return;
         if (!GetInput(out NetworkInputData inputData)) return;
         direction = inputData.direction;
 
