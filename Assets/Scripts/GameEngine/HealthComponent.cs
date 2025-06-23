@@ -5,8 +5,9 @@ using UnityEngine;
 public class HealthComponent : NetworkBehaviour
 {
     [Networked] public int health { get; set; } = 3;
-    [SerializeField] int healthStandart = 3;
+    [SerializeField] int healthStandart = 1;
     [SerializeField] PlayerPoints playerPoints;
+    public bool isDead = false;
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void Rpc_TakeDamage(int amount)
@@ -20,9 +21,14 @@ public class HealthComponent : NetworkBehaviour
     }
     private void Respawn()
     {
-        transform.position = Vector3.zero;
-        playerPoints.ResetPoint();
+        if (!HasInputAuthority) return;
+        
         health = healthStandart;
+        playerPoints.ResetPoint();
+        
+        isDead = true;
+        
+        PlayerUiManager.instance.ShowDeathUI();
     }
 
     public int GetHealth() => health;
